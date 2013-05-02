@@ -21,7 +21,7 @@ DATABASES = {
     'default': {
              'ENGINE': 'django.contrib.gis.db.backends.postgis',
              'NAME': 'kentwellapp',
-             'USER': 'symroe',
+             'USER': '',
              'HOST': 'localhost'
          }
 }
