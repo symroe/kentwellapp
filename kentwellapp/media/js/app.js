@@ -5,7 +5,7 @@ define([
     'backbone',
     'marionette',
     'bootstrap'
-    ], function($, _, Backbone, Marionette, mapView, signupCollection) {
+    ], function($, _, Backbone, Marionette) {
     'use strict';
     
     var App = new Marionette.Application();
@@ -25,7 +25,6 @@ define([
     })
     
     var geolocate = function() {
-        
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = position.coords.latitude + ' ' +  position.coords.longitude;
             $('#content').append("<li>" + pos + "</li>");
