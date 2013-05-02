@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}" type="text/css" media="screen">
+        <link rel="stylesheet" href="{% static "css/bootstrap-responsive.min.css" %}" type="text/css">
+        <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.css" %}">
+        
+        <style type="text/css" media="screen">
+            #content {
+                padding-top:4em;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                <div class="container">
+ 
+                  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+ 
+                  <!-- Be sure to leave the brand out there if you want it shown -->
+                  <a class="brand" href="#">Kentwell Info</a>
+ 
+                  <!-- Everything you want hidden at 940px or less, place within here -->
+                  <div class="nav-collapse collapse">
+                    <ul class="nav">
+                      <li class="active"><a href="#">Home</a></li>
+                      <li><a href="#">Library</a></li>
+                    </ul>
+                  </div>
+ 
+                </div>
+              </div>
+            </div>
+        </nav>
+        <div id="content" class="clear">asdsd</div>
+        <script data-main="{% static "js/main" %}" src="{% static "js/require-jquery.js" %}"></script>
+        <script src="{% static "js/lib/bootstrap.min.js" %}"></script>
+    </body>
+</html>
