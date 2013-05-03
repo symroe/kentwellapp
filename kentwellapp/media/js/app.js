@@ -24,10 +24,47 @@ define([
         });
     })
     
+    
+    App.areaView = Backbone.Marionette.ItemView.extend({
+        template: '#area-template',
+        modelEvents: {
+            "change": "render"
+          },
+          serializeData: function() {
+              var objects = this.model.get('objects')
+              if (objects == undefined) {
+                  objects = []
+              }
+              
+              if (objects.length != 0) {
+                  var name = objects[0].name
+              } else {
+                  name = "Unknown"
+              } 
+              return {"friendlyName" : name};
+          }
+        
+    });
+    
+    App.areaModel = Backbone.Model.extend({
+        url: function() {
+            return 'http://talusdesign.co.uk:8001/api/area/?area__contains={"type":%20"Point",%20"coordinates":%20[' + this.get("lng") + ',' + this.get("lat") + ']}';
+        }
+    });
+    
+    App.areaModelInstance = new App.areaModel();
+    
+    App.ShowView = function() {
+        App.regionMain.show(new App.areaView({model:App.areaModelInstance}))
+    }
+    
     var geolocate = function() {
         navigator.geolocation.getCurrentPosition(function(position) {
             var pos = position.coords.latitude + ' ' +  position.coords.longitude;
-            $('#content').append("<li>" + pos + "</li>");
+            // $('#content').append("<li>" + pos + "</li>");
+            App.areaModelInstance.set({lat: position.coords.latitude, lng: position.coords.longitude});
+            App.areaModelInstance.fetch({dataType: "jsonp"});
+            App.ShowView();
         });
     };
     
@@ -35,7 +72,6 @@ define([
         geolocate();
         setInterval(geolocate, 1000*10);
     });
-    
     
     window.App = App;
     return App;

@@ -9,7 +9,7 @@
         
         <style type="text/css" media="screen">
             #content {
-                padding-top:4em;
+                margin-top:4em;
             }
         </style>
     </head>
@@ -42,6 +42,14 @@
             </div>
         </nav>
         <div id="content" class="clear">asdsd</div>
+        
+        
+        <script id="area-template" type="text/template">
+          <section>
+              Area: <%= friendlyName %>
+          </section>
+        </script>
+        
         <script data-main="{% static "js/main" %}" src="{% static "js/require-jquery.js" %}"></script>
         <script src="{% static "js/lib/bootstrap.min.js" %}"></script>
     </body>
