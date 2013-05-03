@@ -38,10 +38,14 @@ define([
               
               if (objects.length != 0) {
                   var name = objects[0].name
+                  var description = objects[0].description
               } else {
                   name = "Unknown"
               } 
-              return {"friendlyName" : name};
+              return {
+                     "friendlyName" : name,
+                     "description" : description,
+                 };
           }
         
     });
