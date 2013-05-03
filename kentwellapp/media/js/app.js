@@ -40,7 +40,7 @@ define([
                   var name = objects[0].name
                   var description = objects[0].description
               } else {
-                  name = "Unknown"
+                  name = "Boo!  Looks like you're not at Kentwell! :("
               } 
               return {
                      "friendlyName" : name,
